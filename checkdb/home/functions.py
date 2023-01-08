@@ -34,9 +34,9 @@ def process_line(line):
         protocol = match[3]
         record = create_record(timestamp, ip, port, protocol)
         print(record)
-    except Exception as e:
+    except TypeError as e:
         print(f'ERROR IN WITH LINE: {line}')
-        raise e
+        print(e)
 
 
 def process_file(filepath, delete=False):
