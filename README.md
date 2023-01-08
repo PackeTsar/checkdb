@@ -95,3 +95,17 @@ sudo systemctl start checkdb.service
 
 sudo systemctl status checkdb.service
 ```
+
+
+## Import Logs
+
+- Open Django Shell
+
+```python
+from home import functions as f
+
+files = f.list_files('logs')
+
+for file in files:
+    f.process_file(f'logs/{file}', delete=True)
+```

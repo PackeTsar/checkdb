@@ -39,13 +39,15 @@ def process_line(line):
         print(e)
 
 
-def process_file(filepath):
+def process_file(filepath, delete=False):
     print(f'Processing File {filepath}')
     f = open(filepath)
     lines = f.readlines()
     f.close()
     for line in lines:
         process_line(line)
+    if delete:
+        os.remove(filepath)
 
 
 def list_files(dir):
