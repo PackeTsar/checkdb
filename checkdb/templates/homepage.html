@@ -1,0 +1,60 @@
+{% extends '_single_card.html' %}
+{% block title %}Home{% endblock %}
+
+
+{% block cardcontent %}
+
+
+<div data-activate-datatables="card">
+  <div class="card-header">
+    <div class="container">
+      <div class="row">
+        <div class="col d-flex align-items-center ps-0">
+          <strong>
+            Recent
+          </strong>
+        </div>
+        <div class="col-sm col-12 text-end mt-sm-0 mt-3 p-0">
+          <div class="d-flex justify-content-end">
+            <div class="flex-shrink-1 pe-2">
+              <div class="input-group input-group-sm">
+                <div class="bg-white border-end-0 input-group-text"><i class="fa-solid fa-magnifying-glass"></i></div>
+                <input type="text" class="form-control border-start-0" data-activate-datatables="search">
+                <button class="btn btn-sm btn-outline-secondary bg-white search-clear" style="border-color: #cdd4d9;" type="button"><i class="fa-solid fa-xmark"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-body">
+    <div class="table table-responsive">
+      <table class="table table-hover table-striped">
+        <thead>
+          <tr class="text-muted">
+            <th>Timestamp</th>
+            <th>IP</th>
+            <th>Family</th>
+            <th>Port</th>
+            <th>Protocol</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for record in records %}
+          <tr>
+            <td>{{ record.timestamp }}</td>
+            <td>{{ record.ip }}</td>
+            <td>{{ record.address_family }}</td>
+            <td>{{ record.port }}</td>
+            <td>{{ record.protocol }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
