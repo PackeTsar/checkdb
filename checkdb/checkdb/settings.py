@@ -95,9 +95,9 @@ DB_SERVER = 'localhost'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'django',
-        'USER': 'root',
-        'PASSWORD': 'root',
+        'NAME': 'checkdb',
+        'USER': 'checkdb',
+        'PASSWORD': 'checkdb123',
         'HOST': DB_SERVER,
         'PORT': '3306',
     }
