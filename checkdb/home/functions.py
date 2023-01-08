@@ -36,7 +36,7 @@ def process_line(line):
         print(record)
     except Exception as e:
         print(f'ERROR IN WITH LINE: {line}')
-        print(e)
+        raise e
 
 
 def process_file(filepath, delete=False):

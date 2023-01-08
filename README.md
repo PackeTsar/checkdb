@@ -104,8 +104,18 @@ sudo systemctl status checkdb.service
 ```python
 from home import functions as f
 
-files = f.list_files('logs')
+LOG_DIR = '/etc/checkmyip/'
 
-for file in files:
-    f.process_file(f'logs/{file}', delete=True)
+files = f.list_files(LOG_DIR)
+
+clean_files = []
+
+for filename in files:
+    if 'checkmyip' in filename:
+        clean_files.append(filename)
+
+clean_files.sort()
+
+for filename in clean_files:
+    f.process_file(f'{LOG_DIR}/{filename}', delete=True)
 ```
