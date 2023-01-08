@@ -119,3 +119,23 @@ clean_files.sort()
 for filename in clean_files:
     f.process_file(f'{LOG_DIR}/{filename}', delete=True)
 ```
+
+
+
+## Delete Logs Since
+
+- Open Django Shell
+
+```python
+import datetime
+from zoneinfo import ZoneInfo
+from home import functions as f
+
+
+date = datetime.datetime(2020, 7, 27).replace(
+        tzinfo=ZoneInfo('America/Los_Angeles'))
+
+records = f.Record.objects.filter(timestamp__gt=date)
+
+records.delete()
+```
