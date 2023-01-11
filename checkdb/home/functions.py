@@ -38,6 +38,9 @@ def process_line(line):
     except TypeError as e:
         print(f'ERROR IN WITH LINE: {line}')
         print(e)
+    except IndexError as e:
+        print(f'ERROR IN WITH LINE: {line}')
+        print(e)
 
 
 def process_file(filepath, delete=False):
