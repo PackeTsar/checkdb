@@ -25,6 +25,7 @@ def create_record(time, ip, port, protocol):
 
 
 def process_line(line):
+    print(f'Processing: {line}')
     try:
         split = line.split(': ')
         timestamp = split[0]
